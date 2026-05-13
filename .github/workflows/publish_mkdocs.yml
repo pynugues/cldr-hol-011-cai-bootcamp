@@ -1,0 +1,22 @@
+name: Publish MKDocs Lab Guide to Public GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy-public-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build and Deploy using Centralized Action
+        uses: pynugues/github-actions/publish-mkdocs-action@v1
+        with:
+          force_deploy: 'true'
