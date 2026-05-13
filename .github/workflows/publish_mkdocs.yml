@@ -17,6 +17,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build and Deploy using Centralized Action
-        uses: pynugues/github-actions/publish-mkdocs-action@v1
+        uses: pynugues/perso-github-actions/publish-mkdocs-action@v1
         with:
           force_deploy: 'true'
