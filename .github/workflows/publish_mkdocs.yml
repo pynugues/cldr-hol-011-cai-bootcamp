@@ -19,4 +19,5 @@ jobs:
       - name: Build and Deploy using Centralized Action
         uses: pynugues/perso-github-actions/actions/publish-mkdocs-action@v1
         with:
+          mkdocs_directory: 'instructor/mkdocs'
           force_deploy: 'true'
