@@ -1,0 +1,1800 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="GOES">
+      
+      
+      
+        <link rel="prev" href="../../index.html">
+      
+      
+        <link rel="next" href="../module2/index.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Module 1 - Complete ML Workflow - Cloudera AI MLOps Hands on Lab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+<script defer="" src="https://metrics.cloudera-labs.com/script.js" data-website-id="621c01ed-d361-4638-81c8-6066ea2ea56b">
+</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-1-bank-marketing-model-complete-ml-workflow-on-cloudera-ai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="Cloudera AI MLOps Hands on Lab" class="md-header__button md-logo" aria-label="Cloudera AI MLOps Hands on Lab" data-md-component="logo">
+      
+  <img src="../../assets/images/logo-cloudera-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cloudera AI MLOps Hands on Lab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 1 - Complete ML Workflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.infra.cloudera.com/GOES/hol-011-cai-bootcamp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    hol-011-cai-bootcamp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="Cloudera AI MLOps Hands on Lab" class="md-nav__button md-logo" aria-label="Cloudera AI MLOps Hands on Lab" data-md-component="logo">
+      
+  <img src="../../assets/images/logo-cloudera-white.svg" alt="logo">
+
+    </a>
+    Cloudera AI MLOps Hands on Lab
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.infra.cloudera.com/GOES/hol-011-cai-bootcamp" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    hol-011-cai-bootcamp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modules
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Complete ML Workflow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 - Complete ML Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-data-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Data Ingestion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-exploratory-data-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Exploratory Data Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-model-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Model Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-model-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Model Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-configure-your-model-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Important: Configure your Model Endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-inference-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Inference Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-inference-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Inference Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Data Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues and Solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-what-youve-accomplished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary: What you've accomplished
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module2/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 2 - Proactive Monitoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module3/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 3 - Automated Retraining Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../module4/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 4 - Deployment with AI Inference Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-data-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Data Ingestion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-exploratory-data-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Exploratory Data Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-model-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Model Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-model-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Model Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-configure-your-model-endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Important: Configure your Model Endpoint
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-inference-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Inference Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-inference-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Inference Deep Dive
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Data Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues and Solutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-what-youve-accomplished" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary: What you've accomplished
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="module-1-bank-marketing-model-complete-ml-workflow-on-cloudera-ai">Module 1: Bank Marketing Model - Complete ML Workflow on Cloudera AI</h1>
+<p>In this lab, you'll build a complete Machine Learning pipeline on Cloudera AI, from data ingestion through model deployment and inference.</p>
+<p>Module 1 demonstrates real-world ML workflows using industry-standard tools and best practices.</p>
+<h2 id="overview">Overview</h2>
+<p>This lab walks you through building a <strong>bank marketing prediction model</strong> that classifies whether a customer will subscribe to a term deposit.</p>
+<p><strong>Real-World Context:</strong> This workflow mirrors how data scientists work in production environments, where data comes in, gets processed, models make predictions, and results feed downstream systems.</p>
+<p><strong>Goals</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> <strong>Ingest raw data</strong> into a data lake</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> <strong>Explore and analyze</strong> data with interactive notebooks</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> <strong>Train multiple models</strong> using MLflow experiment tracking</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> <strong>Deploy models</strong> as API endpoints with Cloudera AI</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> <strong>Process inference data</strong> with feature engineering pipelines</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> <strong>Make predictions</strong> and track results in production</li>
+</ul>
+<h2 id="lab-structure">Lab structure</h2>
+<p>The lab is organized as a numbered sequence of scripts and notebooks:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>File</th>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>01_ingest.py</code></td>
+<td>Python Script</td>
+<td>Load raw data into the data lake</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>02_eda_notebook.ipynb</code></td>
+<td>Jupyter Notebook</td>
+<td>Explore and visualize data patterns</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>03_train_quick.py</code></td>
+<td>Python Script</td>
+<td>Train models with MLflow tracking</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>04_deploy.py</code></td>
+<td>Python Script</td>
+<td>Deploy best model as API endpoint</td>
+</tr>
+<tr>
+<td>5a</td>
+<td><code>05.1_inference_data_prep.py</code></td>
+<td>Python Script</td>
+<td>Engineer features for inference</td>
+</tr>
+<tr>
+<td>5b</td>
+<td><code>05.2_inference_predict.py</code></td>
+<td>Python Script</td>
+<td>Generate predictions from new data</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>06_Inference_101.ipynb</code></td>
+<td>Jupyter Notebook</td>
+<td>Interactive inference exploration</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Execute scripts in order. Each step builds on previous outputs.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>All scripts for this module are in the <code>module1/</code> folder.</p>
+</div>
+<h2 id="step-by-step-guide">Step-by-Step guide</h2>
+<h3 id="pre-setup">Pre setup</h3>
+<p>Follow the instructors guide to get you to this portal page.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-cdp-homepage.png" data-desc-position="bottom"><img alt="main-page" src="images/module1-cdp-homepage.png"></a></p>
+<p>Click into <strong>Cloudera AI</strong> (new tab).</p>
+<p>Open the Workbench (new tab).</p>
+<p>Find your project and click into it.</p>
+<!-- The first thing you'll want to do is make yourself the project owner - follow the directions show below.
+
+![project-owner](images/module1-update-project-owner.png) -->
+
+<p>Sync the Data Connections available for the project - follow the instructions below.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-data-connections.png" data-desc-position="bottom"><img alt="data-connections" src="images/module1-data-connections.png"></a></p>
+<p>Open a session as follows. Make sure you enable Spark and pick the Spark 3.3.0 addon option.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-session-details.png" data-desc-position="bottom"><img alt="session-details" src="images/module1-session-details.png"></a></p>
+<p>Once in the session, open up the terminal as shown below:</p>
+<p><em>Note: Throughout this lab always check you are in the right module folder. If you get a failure, check this first.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-session-terminal.png" data-desc-position="bottom"><img alt="session-terminal" src="images/module1-session-terminal.png"></a></p>
+<h3 id="step-1-data-ingestion">Step 1: Data Ingestion</h3>
+<p><strong>Purpose:</strong> Load raw bank marketing data and prepare it for analysis and training.</p>
+<p><strong>What happens:</strong></p>
+<ol>
+<li>Reads customer banking data from a CSV source</li>
+<li>Creates a sample inference dataset (test customers)</li>
+<li>Saves data to the Cloudera AI data lake</li>
+<li>Validates data schema and quality</li>
+</ol>
+<p><strong>To run:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>module1
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>01_ingest.py
+</span></code></pre></div>
+<p><strong>Expected output:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>------------------------------------------------------------
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>STEP 3: Write to Data Lake
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>------------------------------------------------------------
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Writing to data lake with user: user001
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Using connection: sefr-aw-dl
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Setting spark.hadoop.yarn.resourcemanager.principal to user001
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Spark Application Id:spark-204abfdf18fd44b8a5de5ed39bc5b07c
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Spark DataFrame conversion: 6.37 seconds
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Hive Session ID = fcf7235e-90cc-47a2-a959-bd03a309f90a
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>✓ Data written to DEFAULT_USER001.BANK_MARKETING_USER001
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Iceberg write time: 39.86 seconds
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>Total data lake write time: 66.91 seconds
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>------------------------------------------------------------
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>STEP 4: Create Sample Inference Data
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>------------------------------------------------------------
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>Creating sample inference data...
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>✓ Sample inference data created
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>  Shape: (1000, 20)
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>  Columns: 20
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>  Saved to: inference_data/raw_inference_data.csv
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>  Creation time: 0.04 seconds
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>============================================================
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>EXECUTION SUMMARY
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>============================================================
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>End time: 2026-04-15 11:59:27
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>Total execution time: 70.03 seconds (1.17 minutes)
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>============================================================
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>✅ Ingestion complete!
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>Next steps:
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>  • Training pipeline: 02_eda_feature_engineering.ipynb → 03_train_quick.py
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>  • Inference pipeline: 05_inference_data_prep.py → 06_inference_predict.py
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>============================================================
+</span></code></pre></div>
+<p><strong>What you're creating:</strong></p>
+<ul>
+<li><code>/module1/data/bank-additional/bank-additional-full.csv</code> - Complete training dataset (41,188 rows)</li>
+<li>Features: Age, job, marital status, education, account balance, campaign details, economic indicators</li>
+<li>Target: Whether customer subscribed to term deposit (yes/no)</li>
+<li><code>/module1/inference_data/raw_inference_data.csv</code> - Sample inference data (1,000 rows)</li>
+<li>Same features as training data</li>
+<li>Used to simulate real-world prediction scenarios</li>
+<li>Will be processed through the inference pipeline</li>
+</ul>
+<p><strong>Why this matters:</strong></p>
+<p>In production, raw data constantly flows into your data lake. This step simulates that process—you're setting up your data foundation for everything downstream.</p>
+<h3 id="step-2-exploratory-data-analysis">Step 2: Exploratory Data Analysis</h3>
+<p><strong>Purpose:</strong> Understand data patterns, distributions, and relationships before building models.</p>
+<p><strong>What happens:</strong></p>
+<p>The Jupyter notebook <code>02_eda_notebook.ipynb</code> provides:</p>
+<ul>
+<li>Statistical summaries of features</li>
+<li>Distribution visualizations</li>
+<li>Correlation analysis</li>
+<li>Missing value assessment</li>
+<li>Business insights about customer behavior</li>
+</ul>
+<p><strong>To run:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Open the notebook in your Cloudera AI project</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># Click on: 02_eda_notebook.ipynb</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Run all cells to see the analysis</span>
+</span></code></pre></div>
+<p><strong>Key Insights you'll discover:</strong></p>
+<ul>
+<li>Customer age distribution and campaign patterns</li>
+<li>Economic indicator trends</li>
+<li>Class imbalance in the target variable (important for training)</li>
+<li>Feature correlations with subscription likelihood</li>
+</ul>
+<p><strong>Why this matters:</strong></p>
+<p>EDA informs your entire ML pipeline. Understanding your data helps you:</p>
+<ul>
+<li>Identify which features matter most</li>
+<li>Spot data quality issues early</li>
+<li>Make informed decisions about preprocessing</li>
+<li>Validate if your model results make business sense</li>
+</ul>
+<h3 id="step-3-model-training">Step 3: Model Training</h3>
+<p><strong>Purpose:</strong> Train multiple models using MLflow to track experiments and find the best performer.</p>
+<p><strong>What we're doing (in the interest of time):</strong></p>
+<p>For this lab, we're using <code>03_train_quick.py</code> which trains a focused set of models quickly (~2-5 minutes). This version:</p>
+<ul>
+<li>Tests 1 model type (Logistic Regression) with multiple configurations</li>
+<li>Tests both baseline and engineered features</li>
+<li>Handles class imbalance with SMOTE</li>
+<li>Logs all experiments to MLflow</li>
+</ul>
+<p><em>Note: <code>03_train_extended.py</code> is available if you want to experiment with more model types (Random Forest, XGBoost, SVM, etc.) - it takes 15-30 minutes.</em></p>
+<p><strong>To run:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>03_train_quick.py
+</span></code></pre></div>
+<p><strong>Expected output:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>================================================================================
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>✅ QUICK TRAINING COMPLETE!
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Total experiments run: 4
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>🔍 View experiments in MLflow UI:
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  1. Run: mlflow ui
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  2. Open: http://localhost:5000
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>💡 Tips for MLflow UI:
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>  • Use tags to filter: model_family, smote, features
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>  • Compare runs side-by-side
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>  • Sort by test_roc_auc to find best models
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>🚀 Ready for more? Try the extended version:
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>  python 03_train_extended.py
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>Next step: 04_deploy.py
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>================================================================================
+</span></code></pre></div>
+<p><strong>What gets logged:</strong></p>
+<ul>
+<li>Model parameters (regularization, solver, etc.)</li>
+<li>Performance metrics (accuracy, precision, recall, F1, ROC-AUC)</li>
+<li>Training time and data shapes</li>
+<li>Model artifacts (the actual trained model file)</li>
+</ul>
+<p><strong>Next: Explore in Cloudera AI</strong></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-experiments.png" data-desc-position="bottom"><img alt="session-terminal" src="images/module1-experiments.png"></a></p>
+<p>After running the training script:</p>
+<ol>
+<li>Go to your Cloudera AI project</li>
+<li>Click on <strong>Experiments</strong> in the left panel</li>
+<li>Select <strong>"BANK_MARKETING_EXPERIMENTS_<username>"</username></strong></li>
+<li>You'll see all 4 experiment runs with their metrics</li>
+<li>Compare F1 scores, ROC-AUC, and other metrics</li>
+<li>Observe which feature engineering approach performs best</li>
+</ol>
+<p><strong>Why this matters:</strong></p>
+<p>MLflow is how data scientists track experiments at scale. In production:</p>
+<ul>
+<li>You run hundreds of experiments</li>
+<li>You need to compare results systematically</li>
+<li>You track which models were trained on which data</li>
+<li>You can reproduce any experiment later</li>
+<li>You select the best model for deployment</li>
+</ul>
+<h3 id="step-4-model-deployment">Step 4: Model Deployment</h3>
+<p><strong>Purpose:</strong> Take the best trained model and deploy it as an API endpoint so applications can request predictions.</p>
+<p><strong>The Deployment Process:</strong></p>
+<p>The deployment script (<code>04_deploy.py</code>) handles these steps automatically:</p>
+<ol>
+<li>
+<p><strong>Select Best Model</strong>
+   - Queries MLflow experiments
+   - Finds the model with highest F1 score
+   - Retrieves preprocessing artifacts</p>
+</li>
+<li>
+<p><strong>Register the Model</strong>
+   - Saves model in MLflow Model Registry
+   - Makes it available for deployment
+   - Tracks model version and metadata</p>
+</li>
+<li>
+<p><strong>Build Model Service</strong>
+   - Packages model with dependencies
+   - Creates API endpoint configuration
+   - Sets up monitoring and logging</p>
+</li>
+<li>
+<p><strong>Deploy to Cloudera AI</strong>
+   - Registers model service in your project
+   - Model becomes available as REST API
+   - Can be called by applications for predictions</p>
+</li>
+</ol>
+<p><strong>To run:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>04_deploy.py
+</span></code></pre></div>
+<p><strong>Expected output:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>================================================================================
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>2026-04-15 12:49:07,180 - INFO - ✅ DEPLOYMENT COMPLETE!
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>✅ DEPLOYMENT COMPLETE!
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>================================================================================
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>📊 Model Summary:
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>   Model Name: banking_campaign_predictor
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>   F1 Score: 0.5968
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>   CML Model ID: 50cd5e4c-ff2a-4af8-b27a-0df04b9bcc72
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>   Build ID: 847bddae-4ac3-4922-a0d8-3e78c42e93c7
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>2026-04-15 12:49:07,180 - INFO - Model Summary:
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>2026-04-15 12:49:07,180 - INFO -   - Model Name: banking_campaign_predictor
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>2026-04-15 12:49:07,180 - INFO -   - F1 Score: 0.5968
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>2026-04-15 12:49:07,180 - INFO -   - CML Model ID: 50cd5e4c-ff2a-4af8-b27a-0df04b9bcc72
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>2026-04-15 12:49:07,180 - INFO -   - Build ID: 847bddae-4ac3-4922-a0d8-3e78c42e93c7
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>   Deployment ID: 8f811554-f82c-407d-baa5-ef8ba683c270
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>✅ REST API ENDPOINT IS LIVE!
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>   Access it: Models &gt; banking_campaign_predictor &gt; Deployments
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>🎯 Test your API:
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>   curl -X POST https://your-cml-workspace/models/...
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>2026-04-15 12:49:07,180 - INFO -   - Deployment ID: 8f811554-f82c-407d-baa5-ef8ba683c270
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>2026-04-15 12:49:07,180 - INFO - REST API endpoint is live!
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>2026-04-15 12:49:07,180 - INFO - Saving deployment info to outputs/deployment_info.json
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>2026-04-15 12:49:07,180 - INFO - Deployment info: {
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>  "run_id": "o0ta-ddwx-6bpp-96wl",
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>  "model_name": "banking_campaign_predictor",
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>  "registered_model_id": "z0vo-ioeh-sewq-045j",
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>  "model_version_id": "qcp6-vkl2-y7jc-o817",
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>  "f1_score": 0.5968028419182948,
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>  "cml_model_id": "50cd5e4c-ff2a-4af8-b27a-0df04b9bcc72",
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>  "build_id": "847bddae-4ac3-4922-a0d8-3e78c42e93c7",
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>  "deployment_id": "8f811554-f82c-407d-baa5-ef8ba683c270",
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>  "status": "Deployed"
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>}
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>💾 Saved to: outputs/deployment_info.json
+</span><span id="__span-6-39"><a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>💾 Debug log saved to: outputs/deployment_debug.log
+</span><span id="__span-6-40"><a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>================================================================================
+</span><span id="__span-6-41"><a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>2026-04-15 12:49:07,192 - INFO - ============================================================
+</span><span id="__span-6-42"><a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>2026-04-15 12:49:07,193 - INFO - Script completed successfully
+</span><span id="__span-6-43"><a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>2026-04-15 12:49:07,193 - INFO - ============================================================
+</span></code></pre></div>
+<p><strong>Next: Verify Deployment in Cloudera AI</strong></p>
+<ol>
+<li>Go to your project's <strong>Model Deployments</strong> tab</li>
+<li>Find the deployed model (bank_campaign_predictor)</li>
+<li>Check the status (should be "Deployed")</li>
+<li>Note the API endpoint URL</li>
+<li>View logs and monitoring information</li>
+</ol>
+<p><strong>Why this matters:</strong></p>
+<p>This is where ML moves from experimental to operational:</p>
+<ul>
+<li>Your model is now a production service</li>
+<li>Other applications can query it for predictions</li>
+<li>You can monitor performance, response times, and errors</li>
+<li>You can update or roll back models safely</li>
+</ul>
+<h3 id="important-configure-your-model-endpoint">⚠️ Important: Configure your Model Endpoint</h3>
+<p>Before running the inference scripts in <em>Step 5</em> and <em>Step 6</em>, you <strong>must configure</strong> your model endpoint credential <code>/shared_utils/config.py</code> file for your own deployed models.</p>
+<p><strong>Step 1: Find your Model Endpoint</strong></p>
+<ol>
+<li>In your Cloudera AI project, go to the <strong>Model Deployments</strong> tab</li>
+<li>Click on your deployed model (e.g., "bank_campaign_predictor")</li>
+<li>Click the <strong>Overview</strong> tab</li>
+<li>In the  <strong>Sample Code</strong> section, you'll see code that looks like (Python):
+   <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'https://modelservice.ml-dbfc64d1-783.go01-dem.ylcu-atmi.cloudera.site/model'</span><span class="p">,</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                  <span class="n">data</span><span class="o">=</span><span class="s1">'{"accessKey":"mbtbh46x9h7wxj4cdkxz9fxl0nzmrefv",...}'</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                  <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">})</span>
+</span></code></pre></div></li>
+</ol>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-gather-model-details.png" data-desc-position="bottom"><img alt="gather-model-details" src="images/module1-gather-model-details.png"></a></p>
+<p><strong>Step 2: Extract your Credentials</strong></p>
+<p>From the instructions above, copy:</p>
+<ul>
+<li><strong>model_endpoint</strong>: The full URL (the https://... part)</li>
+<li><strong>access_key</strong>: The accessKey value</li>
+</ul>
+<p><strong>Step 3: Update <code>/shared_utils/config.py</code></strong></p>
+<p>Open <code>/shared_utils/config.py</code> and update the <code>MODEL_ENDPOINT_CONFIG</code> section with your credentials:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Model endpoint configuration for inference</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># UPDATE THESE VALUES with your deployed model's endpoint and access key</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">MODEL_ENDPOINT_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="s2">"model_endpoint"</span><span class="p">:</span> <span class="s2">"https://modelservice.ml-YOUR-ENDPOINT.cloudera.site/model"</span><span class="p">,</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="s2">"access_key"</span><span class="p">:</span> <span class="s2">"YOUR_ACCESS_KEY_HERE"</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-paste-model-details.png" data-desc-position="bottom"><img alt="paste-model-details" src="images/module1-paste-model-details.png"></a></p>
+<p><strong>Why this is important:</strong></p>
+<p>Each deployed model has a unique endpoint and access key. Using the wrong credentials will cause inference requests to fail with authentication errors. This setup enables:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> Secure API access (access key prevents unauthorized predictions)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> Model tracking (each request is logged to your deployment)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> Usage monitoring (see how many predictions are being made)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> Resource management (limit concurrent requests)</li>
+</ul>
+<h3 id="step-5-inference-pipeline">Step 5: Inference Pipeline</h3>
+<p><strong>Purpose:</strong> Build an automated workflow that takes new customer data, prepares it, and generates predictions at scale.</p>
+<div class="admonition example">
+<p class="admonition-title">Lab Note</p>
+<p>In this lab, we use the TRAINING DATA for inference demonstration to show you how the model
+responds and to validate the pipeline works end-to-end.</p>
+<p>IN PRODUCTION, you would NEVER feed training data back to a deployed model. This is lab-only practice to help you understand:</p>
+<ul>
+<li>How data flows through the preprocessing pipeline</li>
+<li>How the model generates predictions</li>
+<li>How to interpret results and validate model behavior</li>
+</ul>
+<p>Real-world inference uses completely NEW, unseen data from actual customers or business
+scenarios. Training data is for model development only.</p>
+</div>
+<h4 id="the-two-job-pattern-simulating-real-production">The Two-Job Pattern (Simulating real production)</h4>
+<p>In production, inference is typically broken into stages:</p>
+<h5 id="job-1-data-preparation-051_inference_data_preppy">Job 1: Data Preparation (<code>05.1_inference_data_prep.py</code>)</h5>
+<p><strong>What it does:</strong></p>
+<ul>
+<li>Loads raw inference data (new customers to score)</li>
+<li>Applies feature engineering (same transformations as training)</li>
+<li>Creates engagement scores</li>
+<li>Generates age groups and economic categories</li>
+<li>Creates duration categories</li>
+<li>Applies preprocessing (scaling and encoding)</li>
+<li>Outputs engineered data ready for the model</li>
+</ul>
+<p><strong>Output file:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>/module1/inference_data/engineered_inference_data.csv
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>├── All 1,000 test customers
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>├── Original features (age, duration, campaign, etc.)
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>├── Engineered features (engagement_score, age_group, etc.)
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>└── Scaled and one-hot encoded for model input
+</span></code></pre></div>
+<h5 id="job-2-generate-predictions-052_inference_predictpy">Job 2: Generate Predictions (<code>05.2_inference_predict.py</code>)</h5>
+<p><strong>What it does:</strong></p>
+<ul>
+<li>Loads the engineered data from Job 1</li>
+<li>Loads the best trained model from MLflow</li>
+<li>Makes predictions on all records</li>
+<li>Generates probability scores</li>
+<li>Saves results with row tracking</li>
+</ul>
+<p><strong>Output file:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>/module1/inference_data/predictions.csv
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>├── row_id: Unique identifier for each customer
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>├── prediction: 0 (won't subscribe) or 1 (will subscribe)
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>├── probability_class_0: Confidence for "no" prediction
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>├── probability_class_1: Confidence for "yes" prediction
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>└── prediction_label: Human-readable label (no/yes)
+</span></code></pre></div>
+<h4 id="job-creation-through-the-ui">Job creation through the UI</h4>
+<p>We are going to create 2 jobs from 2 separate python script files and we're link a dependency as follows:</p>
+<ul>
+<li>Click on <strong>Jobs</strong> in the left panel of your Cloudera AI project</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-job-ui.png" data-desc-position="bottom"><img alt="job-ui" src="images/module1-job-ui.png"></a></p>
+<ul>
+<li>
+<p>Create New Job</p>
+</li>
+<li>
+<p>Set the name of the first Job to <code>inference data prep</code>. Use the file path <code>module1/05.1_inference_data_prep.py</code> for first job. Set Schedule to <code>Manual</code>.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-job-create-1.png" data-desc-position="bottom"><img alt="job1-create-ui" src="images/module1-job-create-1.png"></a></p>
+<ul>
+<li>
+<p>Create the second job. Set the name of the first Job to <code>inference predict</code>. Use the file path <code>module1/05.2_inference_predict.py</code> for first job.</p>
+</li>
+<li>
+<p>Create a dependency to the first job by setting schedule to <code>Dependent</code> and specifying the first job.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-job-create-2.png" data-desc-position="bottom"><img alt="job2-create-ui" src="images/module1-job-create-2.png"></a></p>
+<ul>
+<li>You will see the dependencies of jobs set up.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="images/module1-job-dependency.png" data-desc-position="bottom"><img alt="job-dependency" src="images/module1-job-dependency.png"></a></p>
+<ul>
+<li>Finally you can run by hitting '<strong>Run as</strong>' for the first job (inference data prep).</li>
+</ul>
+<p><strong>Data Flow through the pipeline:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Raw Data (1,000 customers)
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>         ↓
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    [Job 1: Prepare]
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    • Apply feature engineering
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    • Engineered features created
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    • Data scaled and encoded
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>         ↓
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>Engineered Data (1,000 customers)
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>         ↓
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    [Job 2: Predict]
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    • Load trained model
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    • Generate predictions
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    • Score probabilities
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>         ↓
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>Predictions (1,000 predictions + scores)
+</span></code></pre></div>
+<p><strong>Understanding the output files:</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Lab Note</p>
+<p>In this lab, <code>raw_inference_data.csv</code> contains records sampled from the training dataset for demonstration purposes.</p>
+<p>In production, inference data would come from completely separate sources (new customers, recent transactions, etc.) that the model has never seen during training.</p>
+</div>
+<ol>
+<li>
+<p><code>/module1/inference_data/raw_inference_data.csv</code> (Input)</p>
+<ul>
+<li>Original customer features as they arrive</li>
+<li>No feature engineering yet</li>
+<li>This is what a production system would feed in</li>
+<li><em>In this lab: sampled from training data for demo purposes</em></li>
+</ul>
+</li>
+<li>
+<p><code>/module1/inference_data/engineered_inference_data.csv</code> (Intermediate)</p>
+<ul>
+<li>Same customers after feature engineering</li>
+<li>New columns: engagement_score, age_group, etc.</li>
+<li>Scaled and encoded for model input</li>
+<li>Shows what transformations were applied</li>
+</ul>
+</li>
+<li>
+<p><code>/module1/inference_data/predictions.csv</code> (Output)</p>
+<ul>
+<li>Final predictions ready for business use</li>
+<li>Includes confidence scores</li>
+<li>Traceable back to original customers via row_id</li>
+<li>This is what goes to downstream systems</li>
+</ul>
+</li>
+</ol>
+<p><strong>Why this matters:</strong></p>
+<p>In production:</p>
+<ul>
+<li>Inference often runs on schedules (hourly, daily, weekly)</li>
+<li>Data might come from multiple sources</li>
+<li>You need to transform new data exactly like training data</li>
+<li>Results feed into business applications</li>
+<li>You track data lineage to maintain reproducibility</li>
+</ul>
+<h3 id="step-6-inference-deep-dive">Step 6: Inference Deep Dive</h3>
+<p><strong>Purpose:</strong> Explore the inference process interactively and understand how the model makes predictions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This notebook demonstrates inference using a single record from the training data for educational purposes. In production, you'd use completely new, unseen customer data.</p>
+</div>
+<p><strong>Interactive exploration:</strong></p>
+<p>The Jupyter notebook <code>06_Inference_101.ipynb</code> takes you through:</p>
+<ol>
+<li>
+<p><strong>Loading a single prediction</strong></p>
+<ul>
+<li>Loads one test customer record</li>
+<li>Shows original features</li>
+<li>Shows engineering steps</li>
+</ul>
+</li>
+<li>
+<p><strong>Feature engineering</strong></p>
+<ul>
+<li>See how raw features are transformed</li>
+<li>Understand engagement score calculation</li>
+<li>View categorical encodings</li>
+</ul>
+</li>
+<li>
+<p><strong>Preprocessing</strong></p>
+<ul>
+<li>Observe scaling applied to numeric features</li>
+<li>See one-hot encoding for categorical features</li>
+<li>Compare before/after values</li>
+</ul>
+</li>
+<li>
+<p><strong>Model prediction</strong></p>
+<ul>
+<li>Send features to the model</li>
+<li>Receive prediction and probabilities</li>
+<li>Interpret confidence scores</li>
+</ul>
+</li>
+</ol>
+<p><strong>To run:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Open in Cloudera AI:</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># Click: 06_Inference_101.ipynb</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># Run all cells to walk through inference step-by-step</span>
+</span></code></pre></div>
+<p><strong>What you'll learn:</strong></p>
+<ul>
+<li>How to prepare data for a trained model</li>
+<li>What happens inside the model</li>
+<li>How to interpret prediction scores</li>
+<li>How to handle edge cases</li>
+</ul>
+<p><strong>A note about the model service:</strong></p>
+<p>The model you deployed in Step 4 is hosted on Cloudera AI within your project. It's a REST API that handles:</p>
+<ul>
+<li>Request validation</li>
+<li>Feature preprocessing</li>
+<li>Model inference</li>
+<li>Response formatting</li>
+<li>Error handling</li>
+<li>Monitoring</li>
+</ul>
+<p>In a real deployment, applications would query this endpoint continuously. Later in the lab (or in advanced modules), you'll explore Cloudera AI's inference service capabilities in more detail, including:</p>
+<ul>
+<li>Real-time endpoint monitoring</li>
+<li>A/B testing different models</li>
+<li>Batch prediction jobs</li>
+<li>Model versioning and rollback</li>
+</ul>
+<h2 id="understanding-the-data-flow">Understanding the Data Flow</h2>
+<p>Here's the complete journey of data through this lab:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>┌─────────────────────────────────────────────────────────────┐
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>│                    STEP 1: DATA INGESTION                   │
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>│  Raw CSV → Validate → Save to Data Lake                     │
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>└──────────────────┬──────────────────────────────────────────┘
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>                   │
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    ┌──────────────┴──────────────┐
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    │                             │
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    ↓                             ↓
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>┌──────────────────────┐  ┌──────────────────────┐
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>│  TRAINING DATA       │  │  INFERENCE DATA      │
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>│  41,188 rows         │  │  1,000 rows          │
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>│  (bank customers)    │  │  (test customers)    │
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>└──────────────────────┘  └──────────┬───────────┘
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>    │                                │
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>    ↓                                ↓
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>┌──────────────────────┐      ┌──────────────────────┐
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>│ STEP 2: EDA          │      │ STEP 5A: ENGINEER    │
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>│ Explore patterns     │      │ Apply transformations│
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>│ Visualize data       │      │ Create features      │
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>└──────────────┬───────┘      └──────────┬───────────┘
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>               │                         │
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>               ↓                         ↓
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>        ┌──────────────┐         ┌──────────────────────┐
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>        │ Insights     │         │ ENGINEERED DATA      │
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>        │ • Patterns   │         │ 1,000 rows           │
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>        │ • Imbalance  │         │ (with new features)  │
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>        │ • Key vars   │         └──────────┬───────────┘
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>        └──────────────┘                    │
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>                                           ↓
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>┌─────────────────────────────────────────────────────────────┐
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>│              STEP 3: MODEL TRAINING                         │
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>│  Baseline Features → Engineered Features → Compare Results  │
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>│  Test different configurations → Track with MLflow          │
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>└──────────────────┬──────────────────────────────────────────┘
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>                   │
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a>                   ↓
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>        ┌─────────────────────────┐
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>        │ 8 EXPERIMENT RUNS       │
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>        │ Compare F1, ROC-AUC     │
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a>        │ Select best model       │
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a>        └──────────────┬──────────┘
+</span><span id="__span-13-42"><a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a>                       │
+</span><span id="__span-13-43"><a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a>                       ↓
+</span><span id="__span-13-44"><a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a>┌─────────────────────────────────────────────────────────────┐
+</span><span id="__span-13-45"><a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a>│              STEP 4: MODEL DEPLOYMENT                       │
+</span><span id="__span-13-46"><a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a>│  Register Best Model → Package → Deploy to Cloudera AI      │
+</span><span id="__span-13-47"><a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a>│  Result: REST API Endpoint Ready for Predictions            │
+</span><span id="__span-13-48"><a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a>└──────────────────┬──────────────────────────────────────────┘
+</span><span id="__span-13-49"><a id="__codelineno-13-49" name="__codelineno-13-49" href="#__codelineno-13-49"></a>                   │
+</span><span id="__span-13-50"><a id="__codelineno-13-50" name="__codelineno-13-50" href="#__codelineno-13-50"></a>    ┌──────────────┴──────────────┐
+</span><span id="__span-13-51"><a id="__codelineno-13-51" name="__codelineno-13-51" href="#__codelineno-13-51"></a>    │                             │
+</span><span id="__span-13-52"><a id="__codelineno-13-52" name="__codelineno-13-52" href="#__codelineno-13-52"></a>    ↓                             ↓
+</span><span id="__span-13-53"><a id="__codelineno-13-53" name="__codelineno-13-53" href="#__codelineno-13-53"></a>┌──────────────────────┐  ┌──────────────────────┐
+</span><span id="__span-13-54"><a id="__codelineno-13-54" name="__codelineno-13-54" href="#__codelineno-13-54"></a>│ STEP 5B: PREDICT     │  │ STEP 6: DEEP DIVE    │
+</span><span id="__span-13-55"><a id="__codelineno-13-55" name="__codelineno-13-55" href="#__codelineno-13-55"></a>│ Load model           │  │ Interactive notebook │
+</span><span id="__span-13-56"><a id="__codelineno-13-56" name="__codelineno-13-56" href="#__codelineno-13-56"></a>│ Score 1,000 records  │  │ Explore predictions  │
+</span><span id="__span-13-57"><a id="__codelineno-13-57" name="__codelineno-13-57" href="#__codelineno-13-57"></a>│ Generate output      │  │ Understand features  │
+</span><span id="__span-13-58"><a id="__codelineno-13-58" name="__codelineno-13-58" href="#__codelineno-13-58"></a>└──────────────┬───────┘  └──────────────────────┘
+</span><span id="__span-13-59"><a id="__codelineno-13-59" name="__codelineno-13-59" href="#__codelineno-13-59"></a>               │
+</span><span id="__span-13-60"><a id="__codelineno-13-60" name="__codelineno-13-60" href="#__codelineno-13-60"></a>               ↓
+</span><span id="__span-13-61"><a id="__codelineno-13-61" name="__codelineno-13-61" href="#__codelineno-13-61"></a>        ┌─────────────────────────────┐
+</span><span id="__span-13-62"><a id="__codelineno-13-62" name="__codelineno-13-62" href="#__codelineno-13-62"></a>        │ PREDICTIONS OUTPUT          │
+</span><span id="__span-13-63"><a id="__codelineno-13-63" name="__codelineno-13-63" href="#__codelineno-13-63"></a>        │ 1,000 predictions + scores  │
+</span><span id="__span-13-64"><a id="__codelineno-13-64" name="__codelineno-13-64" href="#__codelineno-13-64"></a>        │ Ready for business use      │
+</span><span id="__span-13-65"><a id="__codelineno-13-65" name="__codelineno-13-65" href="#__codelineno-13-65"></a>        └─────────────────────────────┘
+</span></code></pre></div>
+<p><strong>Key Principles:</strong></p>
+<ul>
+<li><strong>Data lineage:</strong> Track where data comes from at each step</li>
+<li><strong>Reproducibility:</strong> Same preprocessing for training and inference</li>
+<li><strong>Feature engineering:</strong> Applied consistently everywhere</li>
+<li><strong>Monitoring:</strong> Track model performance over time</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Some common issues, and their solution is listed below.</p>
+<h3 id="common-issues-and-solutions">Common Issues and Solutions</h3>
+<h4 id="issue-file-not-found-when-running-scripts">Issue: "File not found" when running scripts</h4>
+<p><strong>Solution:</strong>
+Ensure you're in the <code>module1</code> directory:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">cd</span><span class="w"> </span>module1
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>python<span class="w"> </span>01_ingest.py
+</span></code></pre></div><p></p>
+<h4 id="issue-script-takes-longer-than-expected-or-hangs">Issue: Script takes longer than expected or hangs</h4>
+<p><strong>Solution:</strong>
+Check that required packages are installed:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>scikit-learn<span class="w"> </span>mlflow<span class="w"> </span>numpy
+</span></code></pre></div><p></p>
+<p>For training scripts specifically, this can be resource-intensive on slower systems. You can skip training and use pre-trained models if needed.</p>
+<h4 id="issue-mlflow-experiment-not-found">Issue: "MLflow experiment not found"</h4>
+<p><strong>Solution:</strong>
+Make sure you ran the training script first. Training creates the experiment and model artifacts.</p>
+<h4 id="issue-model-deployment-fails">Issue: Model deployment fails</h4>
+<p><strong>Solution:</strong>
+1. Verify the training script completed successfully
+2. Check that the best model was logged to MLflow
+3. Ensure you have proper credentials for Cloudera AI access</p>
+<h4 id="issue-inference-script-fails-with-module-not-found">Issue: Inference script fails with "module not found"</h4>
+<p><strong>Solution:</strong>
+The inference scripts need the helpers module:
+</p><div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Make sure you're in module1 directory</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>python<span class="w"> </span>05_1_inference_data_prep.py
+</span></code></pre></div><p></p>
+<h4 id="issue-jupyter-notebook-wont-open">Issue: Jupyter notebook won't open</h4>
+<p><strong>Solution:</strong>
+Make sure you're using Cloudera AI's Jupyter interface. In your project, look for the "Open Workbench" or "Jupyter" button.</p>
+<h3 id="getting-help">Getting Help</h3>
+<p>If you encounter issues:</p>
+<ol>
+<li>Check the error message carefully - it usually indicates the problem</li>
+<li>Review the step-by-step guide for that section</li>
+<li>Verify data files exist in the expected locations</li>
+<li>Check the code comments in the script file</li>
+<li>Ask your instructor or refer to Cloudera AI documentation</li>
+</ol>
+<h2 id="summary-what-youve-accomplished">Summary: What you've accomplished</h2>
+<p>By completing this lab, you've built a production-grade ML pipeline:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> <strong>Data Ingestion</strong> - Loaded data into the data lake</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> <strong>Data Analysis</strong> - Explored patterns and insights</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> <strong>Model Training</strong> - Built and tracked multiple experiments</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> <strong>Model Deployment</strong> - Deployed to Cloudera AI</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> <strong>Inference Preparation</strong> - Built data transformation pipeline</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> <strong>Inference Pipeline</strong> - Generated predictions at scale</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> <strong>Interactive Exploration</strong> - Understood the prediction process</li>
+</ul>
+<p>This is how real-world ML systems work. You've seen every step from raw data to production predictions.</p>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><strong>Advanced Training:</strong> Use <code>03_train_extended.py</code> for more model types</li>
+<li><strong>Custom Features:</strong> Modify feature engineering in the preprocessing module</li>
+<li><strong>Hyperparameter Tuning:</strong> Adjust model parameters in training scripts</li>
+<li><strong>Model Monitoring:</strong> Explore Cloudera AI's model monitoring dashboard</li>
+<li><strong>A/B Testing:</strong> Deploy multiple models and compare performance</li>
+</ul>
+<p><strong>Happy Learning!</strong> 🚀</p>
+<p>For more information, visit the <a href="https://docs.cloudera.com/cml/">Cloudera AI Documentation</a>.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../../index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../module2/index.html" class="md-footer__link md-footer__link--next" aria-label="Next: Module 2 - Proactive Monitoring">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Module 2 - Proactive Monitoring
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2026 Cloudera Inc. All rights reserved.<br><a href="https://www.cloudera.com/legal/terms-and-conditions.html" target="_blank">Terms &amp; Conditions | </a>  <a href="https://www.cloudera.com/legal/policies.html" target="_blank"> Privacy Policy and Data Policy</a>
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.annotate", "content.code.copy", "navigation.footer", "navigation.top"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/javascripts/username-replacer.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
