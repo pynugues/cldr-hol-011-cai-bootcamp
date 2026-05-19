@@ -79,6 +79,11 @@ Before starting, ensure you have:
 - [ ] Sufficient disk space (~500MB for data and models)
 - [ ] Completed [Module 1](../module1/README.md)
 
+
+!!! info
+    All scripts for this module are in the `module2/` folder.
+
+
 ## Quick Start Instructions
 
 ### Step 1: Create Jobs Programmatically
@@ -269,6 +274,7 @@ python 02.2_job2_monitoring_pipeline.py --start-period 2 --end-period 2
 - `data/monitoring_log.txt` (detailed execution log)
 
 **Key Advantages**:
+
 - [x] **Single job** - No job chaining or dependencies
 - [x] **Self-contained** - All period state managed internally
 - [x] **Graceful degradation** - Exits with status 0 even when degradation detected

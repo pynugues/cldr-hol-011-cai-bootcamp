@@ -496,7 +496,7 @@ We are going to create 2 jobs from 2 separate python script files and we're link
 
 ![job-dependency](images/module1-job-dependency.png)
 
-* Finally you can run by hitting '**Run as**' for the first (inference data prep job)
+* Finally you can run by hitting '**Run as**' for the first job (inference data prep).
 
 **Data Flow through the pipeline:**
 
